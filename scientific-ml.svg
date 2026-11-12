@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08111d"/><stop offset="1" stop-color="#163047"/></linearGradient>
+<linearGradient id="mesh" x1="0" x2="1"><stop stop-color="#63e2d7"/><stop offset="1" stop-color="#5b90eb"/></linearGradient>
+</defs>
+<rect width="1200" height="800" rx="40" fill="url(#bg)"/>
+<g opacity=".28" stroke="#3c6076" stroke-width="2">
+<path d="M110 650H1090"/><path d="M110 560H1090"/><path d="M110 470H1090"/><path d="M110 380H1090"/><path d="M110 290H1090"/>
+<path d="M210 180V675"/><path d="M390 180V675"/><path d="M570 180V675"/><path d="M750 180V675"/><path d="M930 180V675"/>
+</g>
+<path d="M160 566C240 478 314 457 392 470C488 486 510 581 601 591C703 601 728 470 812 425C911 371 996 394 1040 430" stroke="#d3aa54" stroke-width="4" fill="none"/>
+<path d="M160 530C240 442 313 421 390 435C487 451 512 548 602 557C702 567 727 436 810 390C909 335 995 358 1040 395" stroke="url(#mesh)" stroke-width="8" fill="none"/>
+<g fill="#5fe2d7">
+<circle cx="390" cy="435" r="8"/><circle cx="602" cy="557" r="8"/><circle cx="810" cy="390" r="8"/>
+</g>
+<text x="165" y="132" fill="#dce7ef" font-size="32" font-family="Arial, Helvetica, sans-serif">Physics-informed intelligence</text>
+<text x="165" y="173" fill="#63e2d7" font-size="22" font-family="Arial, Helvetica, sans-serif">PDEs • Boundary conditions • Numerical simulation • Scientific AI</text>
+<text x="740" y="656" fill="#9bb3c5" font-size="28" font-family="Times New Roman, serif">∂ₜu + ∇·F(u) = εΔu</text>
+</svg>
