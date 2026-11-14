@@ -1,1 +1,66 @@
-(()=>{'use strict';const menu=document.querySelector('.nav-toggle'),nav=document.querySelector('.nav-links');if(menu&&nav){menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.setAttribute('aria-label',open?'Close menu':'Ouvrir le menu')});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false')}))}const catalogue=document.getElementById('full-catalogue');if(catalogue){let active='all';const search=document.getElementById('course-search'),count=document.getElementById('course-count'),empty=catalogue.querySelector('.catalogue-empty');const update=()=>{let visible=0;const term=(search?.value||'').trim().toLocaleLowerCase();catalogue.querySelectorAll('.course-card').forEach(card=>{const match=(active==='all'||card.dataset.category===active)&&(!term||card.textContent.toLocaleLowerCase().includes(term));card.hidden=!match;if(match)visible++});catalogue.querySelectorAll('.catalogue-group').forEach(group=>{group.hidden=![...group.querySelectorAll('.course-card')].some(card=>!card.hidden)});if(count)count.textContent=String(visible);if(empty){empty.hidden=visible>0;empty.textContent=document.documentElement.lang==='fr'?'Aucune formation trouvée. Modifiez votre recherche ou le domaine sélectionné.':'No courses found. Try a different search or subject area.'}};document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{active=b.dataset.filter;document.querySelectorAll('.filter').forEach(k=>{k.classList.toggle('active',k===b);k.setAttribute('aria-pressed',String(k===b))});update()}));search?.addEventListener('input',update);update()};const p=new URLSearchParams(location.search),topic=document.getElementById('inquiry-topic'),message=document.getElementById('inquiry-message');if(topic&&p.has('topic')&&['quant','rd','academy'].includes(p.get('topic')))topic.value=p.get('topic');if(message&&p.has('course'))message.value=(document.documentElement.lang==='fr'?'Je souhaite recevoir le programme, les tarifs et les disponibilités pour : ':'Please send me the syllabus, pricing and availability for: ')+p.get('course');const form=document.getElementById('inquiry-form');if(form)form.addEventListener('submit',e=>{e.preventDefault();if(!form.reportValidity())return;const obj=Object.fromEntries(new FormData(form)),recipient={quant:'quant@cerebraquant.fr',rd:'khalil.haddaoui@cerebraquant.fr',academy:'academy@cerebraquant.fr'}[obj.topic];const fr=document.documentElement.lang==='fr';const subject=fr?'Demande CerebraQuant - '+obj.topic:'CerebraQuant inquiry - '+obj.topic;const body=(fr?'Nom / organisation : ':'Name / organization: ')+obj.name+'\n'+(fr?'Email de réponse : ':'Reply email: ')+obj.email+'\n\n'+obj.message;location.href='mailto:'+recipient+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body)});document.querySelectorAll('[data-year]').forEach(el=>el.textContent=new Date().getFullYear());if('IntersectionObserver'in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){const io=new IntersectionObserver(entries=>entries.forEach(ent=>{if(ent.isIntersecting){ent.target.classList.add('visible');io.unobserve(ent.target)}}),{threshold:.08});document.querySelectorAll('.section-head,.pillar,.info-card,.tech-panel,.course-card,.show-card,.track-card').forEach(x=>{x.classList.add('reveal');io.observe(x)})}const group=document.getElementById('waveLines');if(group){const ns='http://www.w3.org/2000/svg';for(let row=0;row<24;row++){let pts=[];for(let col=0;col<=48;col++){let x=28+col*12.6,y=160+row*10.1+Math.sin(col*.28+row*.23)*37+Math.cos(col*.15-row*.18)*29;pts.push([x,y])}const el=document.createElementNS(ns,'polyline');el.setAttribute('points',pts.map(p=>p.join(',')).join(' '));el.setAttribute('fill','none');el.setAttribute('stroke','url(#waves)');el.setAttribute('stroke-width',row%4===0?'1.25':'.65');el.setAttribute('opacity',String(.21+row/50));group.appendChild(el)}for(let col=0;col<46;col+=3){let pts=[];for(let row=0;row<24;row++){let x=28+col*12.6,y=160+row*10.1+Math.sin(col*.28+row*.23)*37+Math.cos(col*.15-row*.18)*29;pts.push([x,y])}let el=document.createElementNS(ns,'polyline');el.setAttribute('points',pts.map(p=>p.join(',')).join(' '));el.setAttribute('fill','none');el.setAttribute('stroke','#78c8c3');el.setAttribute('stroke-width','.55');el.setAttribute('opacity','.16');group.appendChild(el)}}})();
+
+(function(){
+  const navToggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('primary-nav');
+  if(navToggle && nav){
+    navToggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+
+  document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
+
+  document.querySelectorAll('.reveal, .pillar, .show-card, .info-card, .course-card, .contact-option, .track-card').forEach(el => {
+    if(!el.classList.contains('reveal')) el.classList.add('reveal');
+  });
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!prefersReduced && 'IntersectionObserver' in window){
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if(entry.isIntersecting){ entry.target.classList.add('visible'); io.unobserve(entry.target);} });
+    }, {threshold:0.12});
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
+
+  const waveGroups = document.querySelectorAll('#waveLines');
+  waveGroups.forEach(group => {
+    if(group.childNodes.length) return;
+    const ns = 'http://www.w3.org/2000/svg';
+    const total = 17;
+    const width = 660;
+    const baseY = 120;
+    for(let i=0;i<total;i++){
+      const y = baseY + i*18;
+      const amp = 28 + i*1.8;
+      const path = document.createElementNS(ns,'path');
+      let d = `M 0 ${y}`;
+      for(let x=0;x<=width;x+=55){
+        const phase = i*0.55;
+        const yy = y + Math.sin((x/width)*Math.PI*3 + phase)*amp;
+        d += ` L ${x} ${yy.toFixed(2)}`;
+      }
+      path.setAttribute('d', d);
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', 'url(#waves)');
+      path.setAttribute('stroke-opacity', (0.18 + i*0.026).toFixed(2));
+      path.setAttribute('stroke-width', i % 4 === 0 ? '2' : '1.35');
+      group.appendChild(path);
+    }
+  });
+
+  const filters = document.querySelectorAll('.filter-row .filter');
+  if(filters.length){
+    const cards = Array.from(document.querySelectorAll('.course-card'));
+    filters.forEach(btn => btn.addEventListener('click', () => {
+      filters.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const val = btn.getAttribute('data-filter');
+      cards.forEach(card => {
+        const tag = card.getAttribute('data-track') || 'all';
+        card.hidden = !(val === 'all' || tag === val);
+      });
+    }));
+  }
+})();

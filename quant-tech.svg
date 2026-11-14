@@ -1,29 +1,46 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-labelledby="t d">
+<title id="t">Quantitative finance visualization</title>
+<desc id="d">Abstract premium visualization of portfolio construction, risk curves and market structure.</desc>
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08111d"/><stop offset="1" stop-color="#10253b"/></linearGradient>
-<linearGradient id="line1" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#5fe2d7"/><stop offset="1" stop-color="#d3aa54"/></linearGradient>
-<filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#081823"/><stop offset="100%" stop-color="#102a36"/></linearGradient>
+  <linearGradient id="teal" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#6fe5d9"/><stop offset="100%" stop-color="#4f9edd"/></linearGradient>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#d9b36d"/><stop offset="100%" stop-color="#f2d79b"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
 </defs>
-<rect width="1200" height="800" rx="40" fill="url(#bg)"/>
-<g opacity=".35">
-<path d="M100 650H1100" stroke="#36556c" stroke-dasharray="5 9"/>
-<path d="M100 520H1100" stroke="#36556c" stroke-dasharray="5 9"/>
-<path d="M100 390H1100" stroke="#36556c" stroke-dasharray="5 9"/>
-<path d="M100 260H1100" stroke="#36556c" stroke-dasharray="5 9"/>
-<path d="M170 140V690" stroke="#36556c" stroke-dasharray="5 9"/>
-<path d="M350 140V690" stroke="#36556c" stroke-dasharray="5 9"/>
-<path d="M530 140V690" stroke="#36556c" stroke-dasharray="5 9"/>
-<path d="M710 140V690" stroke="#36556c" stroke-dasharray="5 9"/>
-<path d="M890 140V690" stroke="#36556c" stroke-dasharray="5 9"/>
+<rect width="1200" height="760" fill="url(#bg)"/>
+<g opacity="0.15" stroke="#87c6c0" stroke-width="1">
+  <path d="M0 620H1200M0 500H1200M0 380H1200M0 260H1200M0 140H1200"/>
+  <path d="M120 0V760M260 0V760M400 0V760M540 0V760M680 0V760M820 0V760M960 0V760M1100 0V760"/>
 </g>
-<path d="M110 590C180 565 215 478 292 470C356 463 394 541 471 533C545 525 592 384 659 369C742 350 776 441 846 420C921 398 973 260 1090 201" stroke="url(#line1)" stroke-width="8" stroke-linecap="round" filter="url(#glow)"/>
-<path d="M110 625C187 630 220 560 290 563C377 567 430 625 500 592C560 563 630 442 702 453C771 464 798 542 861 526C927 509 1021 401 1090 366" stroke="#5ba3ea" stroke-width="4" stroke-linecap="round" opacity=".95"/>
-<g fill="#53d8cf">
-<circle cx="292" cy="470" r="9"/><circle cx="659" cy="369" r="9"/><circle cx="846" cy="420" r="9"/><circle cx="1090" cy="201" r="9"/>
+<g opacity="0.18"><circle cx="930" cy="180" r="170" fill="#1b4b5c"/><circle cx="1020" cy="540" r="210" fill="#12303d"/></g>
+<g filter="url(#glow)">
+  <path d="M70 590 C 180 550, 245 545, 340 500 S 510 420, 615 392 S 770 315, 860 260 S 1030 195, 1135 126" fill="none" stroke="url(#teal)" stroke-width="7" stroke-linecap="round"/>
+  <path d="M70 620 C 180 602, 280 565, 390 575 S 540 547, 650 500 S 810 446, 905 454 S 1040 430, 1135 392" fill="none" stroke="url(#gold)" stroke-width="4.5" stroke-linecap="round" opacity="0.95"/>
 </g>
-<g fill="#d3aa54"><rect x="140" y="490" width="38" height="160" rx="12"/><rect x="210" y="430" width="38" height="220" rx="12"/><rect x="280" y="350" width="38" height="300" rx="12"/><rect x="350" y="390" width="38" height="260" rx="12"/><rect x="420" y="320" width="38" height="330" rx="12" opacity=".75"/></g>
-<rect x="748" y="112" width="310" height="130" rx="22" fill="#0d1c2b" stroke="#25445b"/>
-<text x="780" y="158" fill="#c8d6e5" font-size="26" font-family="Arial, Helvetica, sans-serif">Multi-factor intelligence</text>
-<text x="780" y="196" fill="#71ded4" font-size="46" font-family="Arial, Helvetica, sans-serif" font-weight="700">Sharpe 2.43</text>
-<text x="780" y="224" fill="#8ea3b5" font-size="20" font-family="Arial, Helvetica, sans-serif">32y out-of-sample • European equities</text>
+<g opacity="0.8" fill="#dce8e6" font-family="Arial, sans-serif">
+  <text x="80" y="90" font-size="20" letter-spacing="5">QUANTITATIVE FINANCE</text>
+  <text x="81" y="120" font-size="12" letter-spacing="6" opacity="0.75">RISK • PORTFOLIO • HEDGING • OPTIMIZATION</text>
+  <text x="930" y="110" font-size="12" letter-spacing="4" opacity="0.65">SYSTEMIC VIEW</text>
+</g>
+<g>
+  <rect x="78" y="150" rx="18" ry="18" width="336" height="174" fill="#102c38" stroke="#234754"/>
+  <text x="108" y="195" fill="#f1f5f3" font-size="18" font-family="Arial, sans-serif">Allocation engine</text>
+  <text x="108" y="236" fill="#9fc2bf" font-size="13" font-family="Arial, sans-serif">μ   expected return</text>
+  <text x="108" y="262" fill="#9fc2bf" font-size="13" font-family="Arial, sans-serif">Σ   covariance structure</text>
+  <text x="108" y="288" fill="#9fc2bf" font-size="13" font-family="Arial, sans-serif">w*  robust optimal weights</text>
+  <text x="108" y="310" fill="#d9b36d" font-size="26" font-family="Georgia, serif">argmin  wᵀΣw  -  λ μᵀw</text>
+</g>
+<g>
+  <rect x="715" y="448" rx="18" ry="18" width="404" height="190" fill="#0d2230" stroke="#244552"/>
+  <g transform="translate(760 495)">
+    <rect x="0" y="65" width="40" height="68" fill="#2e7080"/>
+    <rect x="57" y="42" width="40" height="91" fill="#4aa5b7"/>
+    <rect x="114" y="22" width="40" height="111" fill="#78ddd1"/>
+    <rect x="171" y="50" width="40" height="83" fill="#d9b36d"/>
+    <rect x="228" y="31" width="40" height="102" fill="#ecd49a"/>
+    <rect x="285" y="11" width="40" height="122" fill="#ffffff" opacity="0.9"/>
+  </g>
+  <text x="760" y="470" fill="#edf3f2" font-size="18" font-family="Arial, sans-serif">Strategy analytics</text>
+  <text x="760" y="617" fill="#97b5b8" font-size="13" font-family="Arial, sans-serif">drawdown • turnover • variance reduction • support stability</text>
+</g>
 </svg>

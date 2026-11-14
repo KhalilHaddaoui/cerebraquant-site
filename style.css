@@ -290,3 +290,21 @@ body{background:var(--cq-paper);color:var(--cq-text);font-size:16px}
  .section-head h2,.signal-grid h2,.final-call h2{font-size:clamp(32px,8vw,40px)}
 }
 @media(prefers-reduced-motion:reduce){.pillar,.course-card,.contact-option,.info-card,.track-card{transition:none}}
+
+
+/* V9 — Hybrid A+B+C refinements */
+
+.hero-second-line{display:block;margin-top:12px}
+.show-grid .show-card img{display:block;width:100%;height:210px;object-fit:cover;border-radius:10px}
+.show-grid .show-dark img,.show-grid .show-soft img{background:#0d1f29;padding:0}
+.show-grid .show-dark .show-a-text,.show-grid .show-soft .show-a-text{padding-top:24px}
+.show-soft img{background:#edf4ef}
+.footer .brand img,.site-header .brand img{background:transparent}
+@media(min-width:801px){
+  .show-grid{grid-template-columns:1fr 1fr;}
+  .show-academy{grid-column:1/-1;min-height:360px}
+  .show-dark,.show-soft{min-height:470px}
+}
+@media(max-width:800px){
+  .show-grid .show-card img{height:190px}
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cerebraquant.fr/sitemap.xml
